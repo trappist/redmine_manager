@@ -1,0 +1,3 @@
+= Redmine Manager
+
+Adds a simple manager/report relationship among Redmine users.  Intended as a dependency for other Redmine plugins.
