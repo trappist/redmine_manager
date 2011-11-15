@@ -6,8 +6,18 @@ module UserPatch
       unloadable
       safe_attributes 'manager_id', 'is_manager'
       belongs_to :manager, :class_name => 'User'
-      has_many :reports, :class_name => 'User', :foreign_key => 'manager_id'
+      has_many :reports, :class_name => 'User', :foreign_key => 'manager_id', :uniq => true
       named_scope :is_manager, {:conditions => {:is_manager => true}}
+      def team
+        if is_manager
+          ids = (reports+[self]).flatten.map(&:id).uniq
+        elsif manager
+          ids = (manager.reports+[manager]).flatten.map(&:id).uniq
+        else
+          return []
+        end
+        self.class.find(:all, :conditions => {:id => ids})
+      end
     end
   end
   #module ClassMethods; end
