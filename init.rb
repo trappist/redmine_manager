@@ -15,5 +15,5 @@ Redmine::Plugin.register :redmine_manager do
   description 'Adds a manager/report relationship to users'
   version '0.0.1'
   url 'http://githib.com/trappist/redmine_manager'
-  author_url 'http://github.com/trappist''
+  author_url 'http://github.com/trappist'
 end
