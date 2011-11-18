@@ -4,7 +4,7 @@ module UserPatch
     #base.send(:include, InstanceMethods)
     base.class_eval do 
       unloadable
-      safe_attributes 'manager_id', 'is_manager'
+      safe_attributes 'manager_id', 'is_manager', 'team_name'
       belongs_to :manager, :class_name => 'User'
       has_many :reports, :class_name => 'User', :foreign_key => 'manager_id', :uniq => true
       named_scope :is_manager, {:conditions => {:is_manager => true}}
