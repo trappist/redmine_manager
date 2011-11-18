@@ -1,2 +1,5 @@
 <p><%= form.check_box(:is_manager) %></p>
 <p><%= form.select(:manager_id, User.is_manager.find_all.map{|u|[u.name,u.id]}, {:include_blank => true}) %></p>
+<% if @user.is_manager %>
+<p><%= form.text_field :team_name %></p>
+<% end %>

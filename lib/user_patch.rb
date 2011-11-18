@@ -18,6 +18,10 @@ module UserPatch
         end
         self.class.find(:all, :conditions => {:id => ids})
       end
+      def teamname
+        mgr = is_manager ? self : manager
+        manager.team_name || manager.name rescue nil
+      end
     end
   end
   #module ClassMethods; end
