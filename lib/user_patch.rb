@@ -20,7 +20,7 @@ module UserPatch
       end
       def teamname
         mgr = is_manager ? self : manager
-        manager.team_name || manager.name rescue nil
+        mgr.team_name || mgr.name rescue nil
       end
     end
   end
